@@ -1,0 +1,9 @@
+# story-stock
+
+### Configuration
+
+You need to create a config/config.yml file. Like this:
+
+    pt:
+      :token: "your-api-token"
+      :project_id: 000000

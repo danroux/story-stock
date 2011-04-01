@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    <link href="tablecloth/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="tablecloth/tablecloth.js"></script>
+    :css
+      body{ font-size: 13px; }
+  %body
+    %h1 Tractical on PivotalTracker
+    %table{ :width => "80%" }
+      %thead
+        %tr
+          %th Name
+          %th URL
+          %th Trabajada por
+          %th Puntos
+          %th Tipo de historia
+          %th Creacion
+      %tbody
+        - [@a_project.stories.all(:owned_by => "Daniel"), @a_project.stories.all(:owned_by => "Amed Rodriguez"), @a_project.stories.all(:owned_by => "Javier Saldana")].flatten.each do |story|
+          %tr
+            %td= story.name
+            %td
+              %a{:href => story.url, :target => 'blank'}
+                = story.url
+            %td= story.owned_by
+            %td= story.estimate
+            %td= story.story_type
+            %td= story.created_at.strftime("%d %b %Y")
